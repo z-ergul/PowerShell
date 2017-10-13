@@ -1,7 +1,6 @@
 $user_name = (Get-Item env:\username).Value             
 $computer_name = (Get-Item env:\Computername).Value      
-$filepath = (Get-ChildItem env:\userprofile).value      
-
+     
 Write-host "##########################################################################"
 
 #### OS INFO : NAME, SERIAL NUMBER, ARCHITECTURE ###
@@ -32,11 +31,6 @@ Write-host "####################################################################
 ### IP ADDRESS / MAC ADDRESS AND DEFAULT GATEWAY IP ADDRESS ###
 Write-host "IP/MAC/DEFAULT GATEWAY INFORMATION"
 gwmi Win32_NetworkAdapterConfiguration -computername $computer_name | Select IPAddress,DefaultIPGateway
-Write-host "###########################################################################"
-
-### USERS INFO ###
-Write-host "USERS LAST USE TIME INFORMATION"
-Get-OSLastLogonTime
 Write-host "###########################################################################"
 
 ### DC INFO ###
